@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        #bar
+        {
+            width: 10em;
+            height: 10em;
+            position: absolute;
+            top: 2.5em;
+            left: 0;
+            z-index: 1; /* just for reference */
+            background-color: rgba(160, 160, 160, .4);
+        }
+        #bar:before, #bar:after
+        {
+            content: "";
+            position: absolute;
+        }
+        #bar:before
+        {
+            bottom: -2.5em;
+            left: 1.25em;
+            width: 10em;
+            height: 2.5em;
+            background-color: rgba(160, 160, 160, .8);
+            -webkit-transform: skew(45deg);
+            -moz-transform: skew(45deg);
+            -o-transform: skew(45deg);
+            -ms-transform: skew(45deg);
+            transform: skew(45deg);
+        }
+        
+        /* Left back panel */
+        #bar:after
+        {
+            top: 1.25em;
+            left: 100%;
+            width: 2.5em;
+            height: 100%;
+            background-color: rgba(160, 160, 160, .1); /* skew only the Y-axis */
+            -webkit-transform: skew(0deg, 45deg);
+            -moz-transform: skew(0deg, 45deg);
+            -o-transform: skew(0deg, 45deg);
+            -ms-transform: skew(0deg, 45deg);
+            transform: skew(0deg, 45deg);
+        }
+    </style>
+</head>
+<body>
+    <div id='bar'>
+    </div>
+</body>
+</html>
