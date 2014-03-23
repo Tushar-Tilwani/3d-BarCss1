@@ -3,53 +3,129 @@
 <head>
     <title></title>
     <style>
-        #bar
+        .make-it-3d
+{
+    position: absolute;
+    overflow: visible;
+    margin: auto;
+    background-color: rgba(238,24,73,1);
+    height:100px;
+    width:40px;
+}
+.make-it-3d:before, .make-it-3d:after
+{
+    content: "";
+    position: absolute;
+}
+
+/* Right front panel */
+.make-it-3d:before
+{
+    top: -6px;
+    left: 100%;
+    width: 19px;
+    height: 100%;
+    background-color: rgba(186, 12, 55, 1);
+    -webkit-transform: skew(0deg, -30deg);
+}
+.make-it-3d:after
+{
+    bottom: 100%;
+    right: -10px;
+    width: 100%;
+    height: 11px;
+    background-color: rgba(130, 0, 30, 1);
+    -webkit-transform: skew(-60deg,0deg);
+}
+
+
+
+.bar0
+{
+    background-color: rgba(160, 22, 35, 1);
+}
+.bar0:before
+{
+    background-color: rgba(124, 2, 15, 1);
+}
+.bar0:after
+{
+    background-color: rgba(124, 2, 15, 1);
+}
+
+.bar1
+{
+    background-color: rgba(152, 153, 157, 1);
+}
+.bar1:before
+{
+    background-color: rgba(108, 109, 103, 1);
+}
+.bar1:after
+{
+    background-color: rgba(108, 109, 103, 1);
+}
+
+.bar2
+{
+    background-color: rgba(0, 105, 181, 1);
+}
+
+.bar2:before
+{
+    background-color: rgba(0, 67, 122, 1);
+}
+
+.bar2:after
+{
+    background-color: rgba(0, 67, 122, 1);
+}
+body
         {
-            width: 10em;
-            height: 10em;
-            position: absolute;
-            top: 2.5em;
-            left: 0;
-            z-index: 1; /* just for reference */
-            background-color: rgba(160, 160, 160, .4);
-        }
-        #bar:before, #bar:after
-        {
-            content: "";
-            position: absolute;
-        }
-        #bar:before
-        {
-            bottom: -2.5em;
-            left: 1.25em;
-            width: 10em;
-            height: 2.5em;
-            background-color: rgba(160, 160, 160, .8);
-            -webkit-transform: skew(45deg);
-            -moz-transform: skew(45deg);
-            -o-transform: skew(45deg);
-            -ms-transform: skew(45deg);
-            transform: skew(45deg);
+            height: 768px;
+            width: 1024px;
         }
         
-        /* Left back panel */
-        #bar:after
+        
+        #container
         {
-            top: 1.25em;
-            left: 100%;
-            width: 2.5em;
-            height: 100%;
-            background-color: rgba(160, 160, 160, .1); /* skew only the Y-axis */
-            -webkit-transform: skew(0deg, 45deg);
-            -moz-transform: skew(0deg, 45deg);
-            -o-transform: skew(0deg, 45deg);
-            -ms-transform: skew(0deg, 45deg);
-            transform: skew(0deg, 45deg);
+            height: 600px;
+            width: 200px;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+        
+        #container1
+        {
+            height: 600px;
+            width: 200px;
+            position: absolute;
+            left: 400px;
+            top: 100px;
+        }
+        
+        #container2
+        {
+            height: 600px;
+            width: 200px;
+            position: absolute;
+            left: 600px;
+            top: 100px;
+        }
+        
+        table
+        {
+            position: absolute;
+            right: 200px;
+            bottom: 600px;
         }
     </style>
 </head>
 <body>
-    <div id='bar'>
+    <div id='container'>
+        <div class='make-it-3d'>
+        </div>
     </div>
 </body>
 </html>
