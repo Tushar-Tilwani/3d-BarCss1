@@ -129,3 +129,81 @@ body
     </div>
 </body>
 </html>
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        #imgContainer
+        {
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            background-color: rgba(0,0,0,0.4);
+            visibility: hidden;
+        }
+        #loader
+        {
+            position: absolute;
+            visibility: hidden;
+        }
+        #imgContainer div
+        {
+            width: 1px;
+            height: 1px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body onload='onLoad()' onclick='copy()'>
+    <div id="imgContainer">
+    </div>
+    <img src="styles/images/page-loader.gif" id='loader' />
+    <img src="styles/images/pic.jpg" id='pic' style='visibility: hidden;' />
+    <canvas id="myCanvas" width="200" height="200" style="border: 1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+</body>
+<script type="text/javascript">
+    var c;
+    var ctx;
+    var img;
+    var imgData;
+    function onLoad() {
+        c = document.getElementById("myCanvas");
+        ctx = c.getContext("2d");
+        img = document.getElementById("pic");
+        ctx.drawImage(img, 0, 0);
+        imgData = ctx.getImageData(0, 0, 200, 200);
+    }
+    function copy() {
+        //imgData = ctx.getImageData(0, 0, 20, 20);
+        alert(imgData.toString());
+        var imgContainer = document.getElementById("imgContainer");
+        var loader = document.getElementById("loader");
+        loader.style.visibility = 'inherit';
+        setTimeout(function () {
+            for (var i = 0; i < imgData.data.length; i = i + 4) {
+                setTimeout(function (i) {
+                    return function () {
+                        var div = document.createElement("DIV");
+                        div.style.backgroundColor = 'rgba(' + imgData.data[i] + ',' + imgData.data[i + 1] + ',' + imgData.data[i + 2] + ',' + imgData.data[i + 3] + ')';
+                        imgContainer.appendChild(div);
+                    }
+                } (i), 0);
+            }
+            loader.style.visibility = 'hidden';
+            imgContainer.style.visibility = 'inherit';
+
+        }, 0);
+
+    }
+</script>
+</html>
+
+
+
+
